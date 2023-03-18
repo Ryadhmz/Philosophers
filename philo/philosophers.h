@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/18 15:20:31 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/18 15:28:37 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct philo_struct
     unsigned int nb_eat;
     pthread_mutex_t f_r;
     pthread_mutex_t *f_l;
-    t_arg arg;
+    t_arg *arg;
     pthread_t phil_thread;
     
 }   t_phil;
@@ -47,6 +47,8 @@ typedef struct all_struct
 }   t_all;
 
 int ft_strlen(const char *str);
-int is_nb(char c);
+int is_digit(char c);
+int check_arg(int argc, char **argv);
+int	ft_atoi(const char *str);
 
 #endif

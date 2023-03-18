@@ -8,7 +8,7 @@ void routine(void)
     sleep(1);
     printf("Valeur : %d\n", nb);
     printf("Fin thread\n");
-
+    
 
 }
 
