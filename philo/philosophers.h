@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/18 15:28:37 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/18 16:15:56 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct philo_struct
     unsigned int nb_eat;
     pthread_mutex_t f_r;
     pthread_mutex_t *f_l;
-    t_arg *arg;
     pthread_t phil_thread;
     
 }   t_phil;

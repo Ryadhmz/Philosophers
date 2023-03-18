@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/18 15:30:01 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/18 17:21:34 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,29 @@
 
 void init_struct_philo(t_all *all)
 {
-        
+    int i;
+
+    i = 0;
+    all->phil = malloc(sizeof(t_phil) * all->arg.nb_phil);
+    if(!(all->phil))
+        return(-1);
+    while(i < all->arg.nb_phil)
+    {
+        all->phil[i].id = i + 1;
+        all->phil[i].nb_eat = 0;
+        all->phil[i].f_l = NULL;
+        if(pthread_mutex_init(all->phil[i].f_r, NULL) != 0)
+        {
+            printf("Error init mutex\n");
+            return (-1);
+        }
+        if(i == (all->arg.nb_phil - 1))
+            all->phil[0].f_l = all->phil[i].f_r;
+        else if(i != 0 && i != all->arg.nb_phil - 1)
+            all->phil[i].f_l = all->phil[i-1].f_r;
+        i++;
+    }
+    return (0);
 }
 
 void init_struct_arg(char **argv, int argc, t_all *all)
