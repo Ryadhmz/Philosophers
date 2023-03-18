@@ -33,8 +33,8 @@ int check_arg(int argc, char **argv)
 {
     int i;
     
-    i = 0;
-    if(argc < 5 || argc > 6)
+    i = 1;
+    if(argc != 5 && argc != 6)
         return(-1);
     while(argv[i])
     {
