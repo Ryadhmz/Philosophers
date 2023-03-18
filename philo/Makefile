@@ -2,7 +2,7 @@ PHILO = main.c
 
 CC = @gcc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -pthread -Wall -Werror -Wextra
 
 PHILO_NAME = philo
 
