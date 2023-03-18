@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/18 10:34:08 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/18 15:20:31 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ typedef struct arg_struct
 typedef struct philo_struct
 {
     unsigned int id;
-    unsigned int time_eat;
-    unsigned int time_die;
-    unsigned int time_sleep;
-    int goal_eat;
+    unsigned int nb_eat;
     pthread_mutex_t f_r;
     pthread_mutex_t *f_l;
     t_arg arg;
@@ -43,6 +40,13 @@ typedef struct philo_struct
     
 }   t_phil;
 
+typedef struct all_struct
+{
+    t_arg arg;
+    t_phil *phil;
+}   t_all;
 
+int ft_strlen(const char *str);
+int is_nb(char c);
 
 #endif
