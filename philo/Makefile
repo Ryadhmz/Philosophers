@@ -1,4 +1,4 @@
-PHILO = main.c utils.c check_input.c
+PHILO = main.c utils.c check_input.c thread_phil.c
 
 CC = @gcc
 

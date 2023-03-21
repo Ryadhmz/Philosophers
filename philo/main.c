@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/18 19:29:17 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/21 15:07:14 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int main(int argc, char **argv)
     init_struct_arg(argv, argc, all);
     if(init_struct_philo(all) == -1)
         return(-1);
-    
+    if(thread_phil(all) == -1)
+        return(-1);
 }
