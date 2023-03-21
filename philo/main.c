@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/21 15:07:14 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/22 00:11:06 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int init_struct_philo(t_all *all)
         all->phil[i].id = i + 1;
         all->phil[i].nb_eat = 0;
         all->phil[i].f_l = NULL;
-        if(pthread_mutex_init(&all->phil[i].f_r, NULL) != 0)
+        if(pthread_mutex_init(&all->phil[i].f_r, NULL) != 0 || pthread_mutex_init(&all->phil[i].mutex_write, NULL) != 0) 
         {
             printf("Error init mutex\n");
             return (-1);

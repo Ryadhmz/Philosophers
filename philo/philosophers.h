@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/21 16:24:03 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/22 00:47:35 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct philo_struct
     unsigned int nb_eat;
     pthread_mutex_t f_r; // fourchette droite
     pthread_mutex_t *f_l; // fourchette gauche
+    pthread_mutex_t mutex_write;
     pthread_t phil_thread;
     t_arg *arg;
     
@@ -46,10 +47,13 @@ typedef struct all_struct
     t_phil *phil;
 }   t_all;
 
+
 int ft_strlen(const char *str);
 int is_digit(char c);
 int check_arg(int argc, char **argv);
 int	ft_atoi(const char *str);
 int thread_phil(t_all *all);
+void better_sleep(unsigned int time_to_eat);
+long long int ft_actual_time(void);
 
 #endif
