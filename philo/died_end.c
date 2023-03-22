@@ -6,7 +6,17 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:22 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 14:37:22 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:11:36 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int if_died(t_phil *phil)
+{
+    if(ft_actual_time() - phil.begin_activity > phil->arg.time_to_eat)
+    {
+        pthread_mutex_lock(&(ph.ptr_mutex_write));
+        print_activity(ph.id, "died");
+        phil->arg.is_dead = 1;
+    }
+    return (0);
+}
