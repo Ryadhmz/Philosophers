@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:13:16 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:23:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ int main(int argc, char **argv)
         return(-1);
     if(thread_phil(all) == -1)
         return(-1);
+    
 }

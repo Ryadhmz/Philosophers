@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 14:54:39 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:14:10 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void activity(t_phil *ph)
     pthread_mutex_destroy(&(ph.ptr_mutex_write));
     if(if_died(ph) == -1)
         return;
-    if_end(ph)
+    if_end(ph);
 }

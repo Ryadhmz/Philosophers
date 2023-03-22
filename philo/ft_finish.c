@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_finish.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 14:37:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:17:39 by rhamza           ###   ########.fr       */
+/*   Created: 2023/03/22 15:30:20 by rhamza            #+#    #+#             */
+/*   Updated: 2023/03/22 15:30:45 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
-
-int	ft_atoi(const char *str)
+void ft_finish(t_all *all) // la fonction free tout proprement pour finir le programme comme il se doit
 {
-	int		i;
-	int		result;
-
-	i = 0;
-	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (result);
-}
-
-int ft_strlen(const char *str)
-{
-    int i;
-
-    i = 0;
-    while(str[i])
-        i++;
-
-    return(i);
+    
 }
