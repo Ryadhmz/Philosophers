@@ -6,7 +6,7 @@
 /*   By: ryad <ryad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 00:47:35 by ryad             ###   ########.fr       */
+/*   Updated: 2023/03/22 01:43:37 by ryad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct arg_struct
     unsigned int time_to_eat;
     unsigned int time_to_sleep;
     unsigned int each_phil_m_eat;
+    pthread_mutex_t mutex_write;
+    
 }   t_arg;
 
 typedef struct philo_struct
@@ -35,7 +37,7 @@ typedef struct philo_struct
     unsigned int nb_eat;
     pthread_mutex_t f_r; // fourchette droite
     pthread_mutex_t *f_l; // fourchette gauche
-    pthread_mutex_t mutex_write;
+    pthread_mutex_t *ptr_mutex_write;
     pthread_t phil_thread;
     t_arg *arg;
     
