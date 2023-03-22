@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:10:45 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:12:55 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct arg_struct
     unsigned int time_to_eat;
     unsigned int time_to_sleep;
     unsigned int each_phil_m_eat;
-    int is_dead;
+    int finish;
     pthread_mutex_t mutex_write;
     
 }   t_arg;
