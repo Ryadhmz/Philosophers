@@ -24,5 +24,11 @@ void activity(t_phil *ph)
     pthread_mutex_lock(&(ph->mutex_write));
     print_activity(ph->id, "is sleeping");
     pthread_mutex_destroy(&(ph->mutex_write));
-    
+    better_sleep(ph->arg.time_to_sleep);
+    pthread_mutex_lock(&(ph->mutex_write));
+    print_activity(ph->id, "is thinking");
+    pthread_mutex_destroy(&(ph->mutex_write));
+    if(if_died(ph) == -1)
+        return;
+    if_end(ph)
 }
