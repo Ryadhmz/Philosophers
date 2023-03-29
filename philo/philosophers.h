@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:17:37 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:09:40 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void better_sleep(unsigned int time_to_eat);
 long long int ft_actual_time(void);
 void activity(t_phil *ph);
 void print_activity(int fd, char *str);
+int if_died(t_phil *phil);
 
 #endif

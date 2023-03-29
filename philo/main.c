@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:23:43 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:00:10 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int init_struct_philo(t_all *all)
         all->phil[i].id = i + 1;
         all->phil[i].nb_eat = 0;
         all->phil[i].f_l = NULL;
-        all->phil[i].ptr_mutex_write = all->arg.mutex_write;
+        all->phil[i].ptr_mutex_write = &all->arg.mutex_write;
         if(pthread_mutex_init(&all->phil[i].f_r, NULL) != 0) 
         {
             printf("Error init mutex\n");
@@ -48,7 +48,7 @@ int init_struct_arg(char **argv, int argc, t_all *all)
     all->arg.time_to_sleep = ft_atoi(argv[4]);
     if(argc == 6)
         all->arg.each_phil_m_eat = ft_atoi(argv[5]); 
-    if(pthread_mutex_init(&(all->arg.mutex_write)) != 0)
+    if(pthread_mutex_init(&(all->arg.mutex_write), NULL) != 0)
     {
         printf("Error init mutex\n");
         return (-1);

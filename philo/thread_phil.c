@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/22 15:30:14 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:04:21 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void *thread(void *phil_void)
     ph = (t_phil *)phil_void;
     while(1)
     {
-        if(ph->arg.finish == 1) // faire un truc pour savoir si chaque philo a bien mange 
+        if(ph->arg->finish == 1) // faire un truc pour savoir si chaque philo a bien mange 
             break;
         if(ph->id % 2 == 0)
-            better_sleep(phil_void->arg.time_to_eat / 10);
+            better_sleep(ph->arg->time_to_eat / 10);
         activity(ph);
-    }    
+    }
+    return (NULL);    
 }
 
 int thread_phil(t_all *all)
@@ -42,6 +43,6 @@ int thread_phil(t_all *all)
         }
         i++;
     }
-    ft_finish(); // la fonction finish va tout free comme il faut pour sortir proprement
+    // ft_finish(); // la fonction finish va tout free comme il faut pour sortir proprement
     return 0;
 }
