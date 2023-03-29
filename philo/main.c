@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:57:39 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 08:03:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ int main(int argc, char **argv)
 {
     t_all *all;
 
-    all = NULL;
+    all = malloc(sizeof(t_all));
+    if(!all)
+        return (-1);
 
     if(check_arg(argc, argv) == -1)
     {
@@ -74,5 +76,4 @@ int main(int argc, char **argv)
         return(-1);
     if(thread_phil(all) == -1)
         return(-1);
-    
 }
