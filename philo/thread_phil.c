@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 08:16:40 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:10:27 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void *thread(void *phil_void)
             break;
         if(ph->id % 2 == 0)
             better_sleep(ph->arg->time_to_eat / 10);
-        activity(ph);
+        if(activity(ph) == -1)
+            return(NULL);
     }
     return (NULL);    
 }

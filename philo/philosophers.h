@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:39:21 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:27:19 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_atoi(const char *str);
 int thread_phil(t_all *all);
 void better_sleep(unsigned int time_to_eat);
 long long int ft_actual_time(void);
-void activity(t_phil *ph);
+int activity(t_phil *ph);
 void print_activity(int fd, char *str);
 int if_died(t_phil *phil);
 

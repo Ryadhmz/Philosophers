@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:32:55 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:59:05 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void print_activity(int fd, char *str)
     printf("%lld %u %s\n", ft_actual_time(), fd, str);
 }
 
-void activity(t_phil *ph)
+int activity(t_phil *ph)
 {
     ph->begin_activity = ft_actual_time();
     pthread_mutex_lock(&(ph->f_r));
@@ -42,7 +42,8 @@ void activity(t_phil *ph)
     print_activity(ph->id, "is thinking");
     pthread_mutex_destroy((ph->ptr_mutex_write));
     if(if_died(ph) == -1)
-        return;
+        return (-1);
     if(ph->nb_eat >= ph->arg->each_phil_m_eat)
-        exit(1);
+        return(-1);
+    return (0);
 }
