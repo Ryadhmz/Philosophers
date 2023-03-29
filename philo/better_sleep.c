@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:40 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:34:37 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:39:21 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void better_sleep(unsigned int time_to_eat)
     long long int end_time;
 
     actual_time = ft_actual_time();
-    end_time = ft_actual_time + time_to_eat;
+    end_time = actual_time + time_to_eat;
 
     while(ft_actual_time() < end_time);
 }
