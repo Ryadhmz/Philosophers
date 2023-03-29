@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 23:24:15 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:44:47 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,13 @@ int activity(t_phil *ph)
     print_activity(ph->id, "is eating");
     pthread_mutex_unlock((ph->ptr_mutex_write));
     better_sleep(ph->arg->time_to_eat);
+    printf("unlock 2\n");
     pthread_mutex_unlock(&(ph->f_r));
+    printf("unlock 3\n");
     pthread_mutex_unlock((ph->f_l));
+    printf("before lock mutex write\n");
     pthread_mutex_lock((ph->ptr_mutex_write));
+    printf("lock mutex write\n");
     print_activity(ph->id, "is sleeping");
     pthread_mutex_unlock((ph->ptr_mutex_write));
     better_sleep(ph->arg->time_to_sleep);
