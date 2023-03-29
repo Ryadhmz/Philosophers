@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:00:10 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:57:39 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int init_struct_philo(t_all *all)
 {
-    int i;
+    unsigned int i;
 
     i = 0;
     all->phil = malloc(sizeof(t_phil) * all->arg.nb_phil);
@@ -60,6 +60,8 @@ int init_struct_arg(char **argv, int argc, t_all *all)
 int main(int argc, char **argv)
 {
     t_all *all;
+
+    all = NULL;
 
     if(check_arg(argc, argv) == -1)
     {
