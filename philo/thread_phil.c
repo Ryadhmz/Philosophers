@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 23:20:23 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:34:13 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ int thread_phil(t_all *all)
             printf("Error when creating the thread\n");
             return(-1);
         }
-        pthread_join(all->phil[i].phil_thread, NULL);
+        pthread_detach(all->phil[i].phil_thread);
         i++;
     }
+    while(all->arg.finish != 1);
     // ft_finish(); // la fonction finish va tout free comme il faut pour sortir proprement
     return 0;
 }
