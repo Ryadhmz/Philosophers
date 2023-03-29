@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 23:18:02 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:10:31 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ int init_struct_philo(t_all *all)
         all->phil[i].f_l = NULL;
         all->phil[i].ptr_mutex_write = &all->arg.mutex_write;
         if(pthread_mutex_init(&all->phil[i].f_r, NULL) != 0) 
-        {
-            printf("Error init mutex\n");
             return (-1);
-        }
-        if(i == (all->arg.nb_phil - 1) && all->arg.nb_phil != 1)
-            all->phil[0].f_l = &all->phil[i].f_r;
-        else if(i != 0 && i != all->arg.nb_phil - 1)
-            all->phil[i].f_l = &all->phil[i-1].f_r;
+        if(all->arg.nb_phil == 1)
+            return (0);
+        if(i == (all->arg.nb_phil - 1))
+            all->phil[i].f_l = &all->phil[0].f_r;
+        else
+            all->phil[i].f_l = &all->phil[i+1].f_r;
         i++;
     }
     return (0);
