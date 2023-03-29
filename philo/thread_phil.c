@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 15:18:25 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:20:23 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int thread_phil(t_all *all)
     unsigned int i;
 
     i = 0;
+        
     while(i < all->arg.nb_phil)
     {
         all->phil[i].arg = &all->arg;
