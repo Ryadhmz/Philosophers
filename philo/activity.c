@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 00:55:03 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:55:51 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int solo_philo(t_phil *ph)
         return (-1);
     if(ph->nb_eat >= ph->arg->each_phil_m_eat)
     {
-        phil->arg->finish = 1;
+        ph->arg->finish = 1;
         return(-1);
     }
     return (0);
