@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 16:03:50 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 16:18:12 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int solo_philo(t_phil *ph)
 
 int activity(t_phil *ph)
 {
-    if(ph->begin_activity == -1)
-        ph->begin_activity = ft_actual_time(); 
     pthread_mutex_lock(&(ph->f_r));
     pthread_mutex_lock((ph->ptr_mutex_write)); // donner a tout les threads le MEME mutex write
     print_activity(ph->id, "has taken a fork");
@@ -44,9 +42,9 @@ int activity(t_phil *ph)
     print_activity(ph->id, "is eating");
     pthread_mutex_unlock((ph->ptr_mutex_write));
     better_sleep(ph->arg->time_to_eat);
-    ph->begin_activity = ft_actual_time(); 
     pthread_mutex_unlock(&(ph->f_r));
     pthread_mutex_unlock((ph->f_l));
+    ph->begin_activity = ft_actual_time(); 
     // if(if_died(ph) == -1)
     //     return (-1);
     pthread_mutex_lock((ph->ptr_mutex_write));
