@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 03:17:43 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 14:56:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ void *thread_must_eat(void *all_void)
 
     eat = 0;
     all = (t_all *)all_void;
-    while(eat != all->)    
+    while(eat < all->arg->each_phil_m_eat)
+    {
+        better_sleep(all->arg->time_to_eat)
+        eat += 1;
+    }    
+    if(eat == all->arg->each_phil_m_eat)
+        all->arg->finish = 1;
+    return (NULL);
 }
 
 void *thread_dead(void *phil_void)
