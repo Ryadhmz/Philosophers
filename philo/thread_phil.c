@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 16:31:48 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 16:53:50 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int thread_phil(t_all *all)
             return(-1);
         }
         pthread_detach(all->phil[i].phil_thread);
-        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0)
+        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0) // creer ce thread seulement si un must_eat existe
         {
             printf("Error when creating the thread\n");
             return(-1);
