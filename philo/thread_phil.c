@@ -6,11 +6,21 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 01:44:48 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 02:36:10 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void *thread_dead(void *phil_void)
+{
+    t_phil *ph;
+    
+    ph = (t_phil *)phil_void;
+    better_sleep(ph->arg->time_to_die);
+    if_dead(ph);
+    return (NULL);
+}
 
 void *thread(void *phil_void)
 {
