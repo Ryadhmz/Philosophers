@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 02:33:59 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 02:37:56 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct philo_struct
     pthread_mutex_t *f_l; // fourchette gauche
     pthread_mutex_t *ptr_mutex_write;
     pthread_t phil_thread;
+    pthread_t phil_dead;
     t_arg *arg;
     
 }   t_phil;

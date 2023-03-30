@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 02:29:01 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 02:47:53 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@ int solo_philo(t_phil *ph)
 {
     better_sleep(ph->arg->time_to_eat);
     pthread_mutex_unlock(&(ph->f_r));
-    if(if_died(ph) == -1)
-        return (-1);
-    if(ph->nb_eat >= ph->arg->each_phil_m_eat)
-    {
-        ph->arg->finish = 1;
-        return(-1);
-    }
+    // if(if_died(ph) == -1)
+    //     return (-1);
     return (0);
 }
 
