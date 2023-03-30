@@ -6,11 +6,21 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 02:48:36 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:17:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void *thread_must_eat(void *all_void)
+{
+    unsigned int eat;
+    t_all *all;
+
+    eat = 0;
+    all = (t_all *)all_void;
+    while(eat != all->)    
+}
 
 void *thread_dead(void *phil_void)
 {
