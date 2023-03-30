@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 16:17:50 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 16:31:48 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void *thread(void *phil_void)
     ph = (t_phil *)phil_void;
     while(1)
     {
-        ph->begin_activity = ft_actual_time();
         if(ph->arg->finish == 1) // faire un truc pour savoir si chaque philo a bien mange 
             break;
         if(ph->id % 2 == 0)
             better_sleep(ph->arg->time_to_eat / 10);
+        ph->begin_activity = ft_actual_time();
         if(pthread_create(&ph->phil_dead, NULL, &thread_dead, (void*)ph) != 0)
         {
             printf("Error when creating the thread\n");
