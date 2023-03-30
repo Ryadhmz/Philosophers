@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:22 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 00:36:48 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 01:50:35 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int if_died(t_phil *phil)
 {
-    printf("Entre if died\n");
-    printf("Actual time : %lld, Begin activity : %lld, Time to die : %u\n", ft_actual_time(), phil->begin_activity, phil->arg->time_to_die);
     if((ft_actual_time() - phil->begin_activity) >= phil->arg->time_to_die)
     {
         pthread_mutex_lock((phil->ptr_mutex_write));
