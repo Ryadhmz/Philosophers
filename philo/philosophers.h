@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/30 14:45:30 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:03:41 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct all_struct
 {
     t_arg arg;
     t_phil *phil;
+    pthread_t thread_all;
 }   t_all;
 
 
