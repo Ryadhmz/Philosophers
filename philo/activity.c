@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/31 23:36:23 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 00:13:19 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,5 @@ int activity(t_phil *ph)
     pthread_mutex_lock((ph->ptr_mutex_write));
     print_activity(ph->id, "is thinking");
     pthread_mutex_unlock((ph->ptr_mutex_write));
-    if(ph->nb_eat >= ph->arg->each_phil_m_eat)
-        return(-1);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:11:55 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 00:13:22 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void *thread_must_eat(void *all_void)
 {
-    unsigned int eat;
+    int eat;
     t_all *all;
 
     eat = 0;
