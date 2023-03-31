@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/31 18:24:13 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 00:11:55 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,16 @@ void *thread(void *phil_void)
     t_phil *ph;
     
     ph = (t_phil *)phil_void;
+    if(ph->id % 2 == 0)
+            better_sleep(ph->arg->time_to_eat / 10);
     while(ph->arg->finish == 0)
     {
-        if(ph->arg->finish == 1) // faire un truc pour savoir si chaque philo a bien mange 
-            break;
-        if(ph->id % 2 == 0)
-            better_sleep(ph->arg->time_to_eat / 10);
         ph->begin_activity = ft_actual_time();
         if(pthread_create(&ph->phil_dead, NULL, &thread_dead, (void*)ph) != 0)
         {
             printf("Error when creating the thread\n");
             return (NULL);
         }
-        
         if(activity(ph) == -1)
             break;
         pthread_detach(ph->phil_dead);
@@ -81,10 +78,13 @@ int thread_phil(t_all *all)
             return(-1);
         }
         pthread_detach(all->phil[i].phil_thread);
+        if(all->arg.each_phil_m_eat != -1)
+        {
         if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0) // creer ce thread seulement si un must_eat existe
         {
             printf("Error when creating the thread\n");
             return(-1);
+        }
         }
         pthread_detach(all->thread_all);
         i++;

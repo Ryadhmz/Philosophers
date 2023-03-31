@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/31 18:49:55 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/03/31 23:36:23 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int activity(t_phil *ph)
     pthread_mutex_lock((ph->ptr_mutex_write));
     print_activity(ph->id, "is sleeping");
     pthread_mutex_unlock((ph->ptr_mutex_write));
-    // if(if_died(ph) == -1)
-    //     return (-1);
     better_sleep(ph->arg->time_to_sleep);
     pthread_mutex_lock((ph->ptr_mutex_write));
     print_activity(ph->id, "is thinking");
