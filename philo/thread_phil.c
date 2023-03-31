@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:32:39 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 00:40:04 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void *thread_dead(void *phil_void)
 {
     t_phil *ph;
     ph = (t_phil *)phil_void;
-    better_sleep(ph->arg->time_to_die + ph->arg->time_to_eat);
+    better_sleep(ph->arg->time_to_die + 10);
     if_died(ph);
     return (NULL);
 }
