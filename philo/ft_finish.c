@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:30:20 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 18:42:31 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 00:11:00 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void ft_finish(t_all *all) // la fonction free tout proprement pour finir le programme comme il se doit
 {
-    int i;
+    unsigned int i;
 
     i = 0;
     pthread_mutex_destroy(&all->arg.mutex_write);
@@ -24,4 +24,6 @@ void ft_finish(t_all *all) // la fonction free tout proprement pour finir le pro
         i++;  
     }
     free(all->phil);
+    free(all);
+    all = NULL;
 }

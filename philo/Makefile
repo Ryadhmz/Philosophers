@@ -2,7 +2,7 @@ PHILO = main.c utils.c check_input.c thread_phil.c better_sleep.c activity.c die
 
 CC = @gcc
 
-FLAGS = -g -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
 PHILO_NAME = philo
 
