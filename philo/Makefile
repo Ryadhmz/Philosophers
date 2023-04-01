@@ -1,4 +1,4 @@
-PHILO = main.c utils.c check_input.c thread_phil.c better_sleep.c activity.c died_end.c
+PHILO = main.c utils.c check_input.c thread_phil.c better_sleep.c activity.c died_end.c ft_finish.c
 
 CC = @gcc
 

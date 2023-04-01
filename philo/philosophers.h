@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 16:53:17 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 18:15:16 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ long long int ft_actual_time(void);
 int activity(t_phil *ph);
 void print_activity(int fd, char *str);
 int if_died(t_phil *phil);
+void ft_finish(t_all *all);
 
 #endif

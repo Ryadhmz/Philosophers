@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 17:08:40 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 18:24:11 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void *thread_must_eat(void *all_void)
                 eat = 0;
                 break;
             }
-            i++;            
+            i++;
         }
         if(eat == 1)
             break;
@@ -45,8 +45,11 @@ void *thread_dead(void *phil_void)
 {
     t_phil *ph;
     ph = (t_phil *)phil_void;
-    better_sleep(ph->arg->time_to_die);
-    if_died(ph);
+    if(ph->arg->finish != 1)
+    {
+        better_sleep(ph->arg->time_to_die);
+        if_died(ph);
+    }
     return (NULL);
 }
 
@@ -92,6 +95,6 @@ int thread_phil(t_all *all, int each_phil_m_eat)
         }
         pthread_detach(all->thread_all);
     while(all->arg.finish != 1);
-    // ft_finish(); // la fonction finish va tout free comme il faut pour sortir proprement
+    ft_finish(all); // la fonction finish va tout free comme il faut pour sortir proprement
     return 0;
 }

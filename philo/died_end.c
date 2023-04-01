@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:22 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 01:03:18 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 17:16:18 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,3 @@ int if_died(t_phil *phil)
     }
     return (0);
 }
-
-// void if_end(t_phil *phil)
-// {
-//     if(phil->nb_eat >= phil->arg->each_phil_m_eat)
-//     {
-        
-//     }
-// }
