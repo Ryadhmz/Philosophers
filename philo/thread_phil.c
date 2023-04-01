@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:42:22 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 02:32:37 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ void *thread_must_eat(void *all_void)
 
     eat = 0;
     all = (t_all *)all_void;
+    printf("all->arg.each_phil_m_eat : %d\n\n\n\n\n\n\n\n\n\n\n\n", all->arg.each_phil_m_eat);
     while(eat < all->arg.each_phil_m_eat)
     {
         better_sleep(all->arg.time_to_eat);
         eat += 1;
+        printf("eat augmente ouais\n\n\n\n");
     }    
-    if(eat == all->arg.each_phil_m_eat)
-        all->arg.finish = 1;
+    all->arg.finish = 1;
     return (NULL);
 }
 
@@ -60,12 +61,21 @@ void *thread(void *phil_void)
     return (NULL);
 }
 
-int thread_phil(t_all *all)
+int thread_phil(t_all *all, int each_phil_m_eat)
 {
     unsigned int i;
 
     i = 0;
-        
+    if(each_phil_m_eat != -1)
+        {
+            printf("each_phil_m_eat : %d\n",each_phil_m_eat);
+        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0) // creer ce thread seulement si un must_eat existe
+        {
+            printf("Error when creating the thread\n");
+            return(-1);
+        }
+        }
+        pthread_detach(all->thread_all);
     while(i < all->arg.nb_phil)
     {
         all->phil[i].arg = &all->arg;
@@ -75,15 +85,6 @@ int thread_phil(t_all *all)
             return(-1);
         }
         pthread_detach(all->phil[i].phil_thread);
-        if(all->arg.each_phil_m_eat != -1)
-        {
-        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0) // creer ce thread seulement si un must_eat existe
-        {
-            printf("Error when creating the thread\n");
-            return(-1);
-        }
-        }
-        pthread_detach(all->thread_all);
         i++;
     }
     while(all->arg.finish != 1);

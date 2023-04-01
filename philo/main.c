@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:11:29 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 02:32:38 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int init_struct_arg(char **argv, int argc, t_all *all)
     all->arg.time_to_sleep = ft_atoi(argv[4]);
     all->arg.each_phil_m_eat = -1;
     if(argc == 6)
-        all->arg.each_phil_m_eat = ft_atoi(argv[5]); 
+        all->arg.each_phil_m_eat = ft_atoi(argv[5]);
+    printf("All arg init : %d\n",all->arg.each_phil_m_eat);
     if(pthread_mutex_init(&(all->arg.mutex_write), NULL) != 0)
     {
         printf("Error init mutex\n");
@@ -72,9 +73,10 @@ int main(int argc, char **argv)
     }
     if(init_struct_arg(argv, argc, all) == -1)
         return(-1);
+    printf("All arg init dehors : %d\n",all->arg.each_phil_m_eat);
     if(init_struct_philo(all) == -1)
         return(-1);
-    if(thread_phil(all) == -1)
+    if(thread_phil(all, ) == -1)
         return(-1);
     return (0);
 }

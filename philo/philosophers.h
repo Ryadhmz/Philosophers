@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:12:26 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 02:21:54 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int ft_strlen(const char *str);
 int is_digit(char c);
 int check_arg(int argc, char **argv);
 int	ft_atoi(const char *str);
-int thread_phil(t_all *all);
+int thread_phil(t_all *all, int each_phil_m_eat);
 void better_sleep(unsigned int time_to_eat);
 long long int ft_actual_time(void);
 int activity(t_phil *ph);
