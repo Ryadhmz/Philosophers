@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 00:37:29 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 16:24:23 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int activity(t_phil *ph)
     pthread_mutex_unlock((ph->ptr_mutex_write));
     ph->begin_activity = ft_actual_time();
     better_sleep(ph->arg->time_to_eat);
+    ph->nb_eat += 1;
     pthread_mutex_unlock(&(ph->f_r));
     pthread_mutex_unlock((ph->f_l));
     pthread_mutex_lock((ph->ptr_mutex_write));

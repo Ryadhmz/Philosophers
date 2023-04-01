@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 06:45:48 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 15:52:25 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 16:47:48 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct arg_struct
 typedef struct philo_struct
 {
     unsigned int id;
-    unsigned int nb_eat;
+    int nb_eat;
     long long int begin_activity;
     pthread_mutex_t f_r; // fourchette droite
     pthread_mutex_t *f_l; // fourchette gauche

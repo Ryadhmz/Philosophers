@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 16:00:22 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 16:49:46 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,32 @@
 
 void *thread_must_eat(void *all_void)
 {
+    unsigned int i;
     int eat;
-    t_phil *phil;
+    t_all *all;
 
-    eat = 0;
-    phil = (t_phil *)all_void;
-    if(phil->arg->each_phil_m_eat > 0)
-        better_sleep(phil->arg->time_to_eat / 10);
-    while(eat < phil->arg->each_phil_m_eat)
+    i = 0;
+    eat = 1;
+    all = (t_all *)all_void;
+    while(1)
     {
-        better_sleep(phil->arg->time_to_eat);
-        eat += 1;
-        if(eat < phil->arg->each_phil_m_eat)
-        better_sleep(phil->arg->time_to_sleep);
+        better_sleep(all->arg.time_to_eat);
+        while(i < all->arg.nb_phil)
+        {
+            if(all->phil[i].nb_eat < all->arg.each_phil_m_eat)
+            {
+                i = 0;
+                eat = 0;
+                break;
+            }
+            i++;            
+        }
+        if(eat == 1)
+            break;
+        eat = 1;
+        better_sleep(all->arg.time_to_sleep);
     }
-    phil->arg->finish = 1;
+    all->arg.finish = 1;
     return (NULL);
 }
 
@@ -78,8 +89,7 @@ int thread_phil(t_all *all, int each_phil_m_eat)
     }
     if(each_phil_m_eat != -1)
         {
-        i = i - 1;
-        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all->phil[i]) != 0)
+        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)all) != 0)
             return(-1);
         }
         pthread_detach(all->thread_all);
