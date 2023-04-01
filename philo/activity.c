@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:44 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 17:00:51 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 17:15:34 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 void print_activity(int fd, char *str)
 {
     printf("%lld %u %s\n", ft_actual_time(), fd, str);
+}
+
+void is_thinking(t_phil *ph)
+{
+    pthread_mutex_lock((ph->ptr_mutex_write));
+    print_activity(ph->id, "is thinking");
+    pthread_mutex_unlock((ph->ptr_mutex_write));
 }
 
 int solo_philo(t_phil *ph)
@@ -27,7 +34,7 @@ int solo_philo(t_phil *ph)
 int activity(t_phil *ph)
 {
     pthread_mutex_lock(&(ph->f_r));
-    pthread_mutex_lock((ph->ptr_mutex_write)); // donner a tout les threads le MEME mutex write
+    pthread_mutex_lock((ph->ptr_mutex_write));
     print_activity(ph->id, "has taken a fork");
     pthread_mutex_unlock((ph->ptr_mutex_write));
     if(ph->arg->nb_phil == 1)
@@ -49,8 +56,6 @@ int activity(t_phil *ph)
     print_activity(ph->id, "is sleeping");
     pthread_mutex_unlock((ph->ptr_mutex_write));
     better_sleep(ph->arg->time_to_sleep);
-    pthread_mutex_lock((ph->ptr_mutex_write));
-    print_activity(ph->id, "is thinking");
-    pthread_mutex_unlock((ph->ptr_mutex_write));
+    is_thinking(ph);
     return (0);
 }
