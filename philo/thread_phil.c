@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 18:36:27 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 00:04:51 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ int thread_phil(t_all *all, int each_phil_m_eat)
         {
         if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)all) != 0)
             return(-1);
-        }
         pthread_detach(all->thread_all);
+        }
     while(all->arg.finish != 1);
     return 0;
 }
