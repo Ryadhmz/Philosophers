@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:50 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/01 02:32:37 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/01 15:32:36 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 void *thread_must_eat(void *all_void)
 {
     int eat;
-    t_all *all;
+    t_phil *phil;
 
     eat = 0;
-    all = (t_all *)all_void;
-    printf("all->arg.each_phil_m_eat : %d\n\n\n\n\n\n\n\n\n\n\n\n", all->arg.each_phil_m_eat);
-    while(eat < all->arg.each_phil_m_eat)
+    phil = (t_phil *)all_void;
+    if(phil->arg->each_phil_m_eat > 0)
+        better_sleep(phil->arg->time_to_eat / 10);
+    while(eat < phil->arg->each_phil_m_eat)
     {
-        better_sleep(all->arg.time_to_eat);
+        better_sleep(phil->arg->time_to_eat);
         eat += 1;
-        printf("eat augmente ouais\n\n\n\n");
-    }    
-    all->arg.finish = 1;
+        if(eat < phil->arg->each_phil_m_eat)
+            better_sleep(phil->arg->time_to_sleep);
+    }
+    phil->arg->finish = 1;
     return (NULL);
 }
 
@@ -68,22 +70,15 @@ int thread_phil(t_all *all, int each_phil_m_eat)
     i = 0;
     if(each_phil_m_eat != -1)
         {
-            printf("each_phil_m_eat : %d\n",each_phil_m_eat);
-        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all) != 0) // creer ce thread seulement si un must_eat existe
-        {
-            printf("Error when creating the thread\n");
+        if(pthread_create(&all->thread_all, NULL, &thread_must_eat, (void*)&all->phil[i]) != 0)
             return(-1);
-        }
         }
         pthread_detach(all->thread_all);
     while(i < all->arg.nb_phil)
     {
         all->phil[i].arg = &all->arg;
         if(pthread_create(&all->phil[i].phil_thread, NULL, &thread, (void*)&all->phil[i]) != 0)
-        {
-            printf("Error when creating the thread\n");
             return(-1);
-        }
         pthread_detach(all->phil[i].phil_thread);
         i++;
     }
