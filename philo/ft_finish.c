@@ -6,24 +6,24 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:30:20 by rhamza            #+#    #+#             */
-/*   Updated: 2023/04/02 00:11:00 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 03:51:43 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void ft_finish(t_all *all) // la fonction free tout proprement pour finir le programme comme il se doit
+void	ft_finish(t_all *all)
 {
-    unsigned int i;
+	unsigned int	i;
 
-    i = 0;
-    pthread_mutex_destroy(&all->arg.mutex_write);
-    while(i < all->arg.nb_phil)
-    {
-        pthread_mutex_destroy(&all->phil->f_r);
-        i++;  
-    }
-    free(all->phil);
-    free(all);
-    all = NULL;
+	i = 0;
+	pthread_mutex_destroy(&all->arg.mutex_write);
+	while (i < all->arg.nb_phil)
+	{
+		pthread_mutex_destroy(&all->phil->f_r);
+		i++;
+	}
+	free(all->phil);
+	free(all);
+	all = NULL;
 }

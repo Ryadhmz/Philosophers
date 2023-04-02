@@ -6,7 +6,7 @@
 /*   By: rhamza <rhamza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:37:53 by rhamza            #+#    #+#             */
-/*   Updated: 2023/03/29 07:48:18 by rhamza           ###   ########.fr       */
+/*   Updated: 2023/04/02 03:51:31 by rhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		result;
+	int	i;
+	int	result;
 
 	i = 0;
 	result = 0;
@@ -27,13 +27,12 @@ int	ft_atoi(const char *str)
 	return (result);
 }
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i])
-        i++;
-
-    return(i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
